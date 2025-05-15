@@ -6,7 +6,11 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-blue-50">
+    <div class="flex items-center gap-2 p-5 mx-10">
+        <span class="text-blue-600">Ja_ne's</span>
+         <h2 class="text-blue-600 text-2xl font-bold ">News HeadLine</h2>
+    </div>
   <div id="container"></div>
 
   <script>
@@ -23,7 +27,7 @@
       const link = document.createElement("a");
       link.href = articleUrl;
       link.target = "_blank";
-      link.classList.add("text-blue-600", "font-bold", "hover:underline");
+      link.classList.add("text-blue-600", "font-bold", "hover:underline", 'hover:text-blue-900');
       link.innerText = title || "Read Article";
       textDiv.appendChild(link);
 
