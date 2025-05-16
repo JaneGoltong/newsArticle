@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registration Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class='bg-red-50'>
+  <header>
+    <nav class="flex justify-start items-center px-10 bg-red-100 mx-20">
+      <div class="flex items-center gap-2 p-5 mx-10">
+        <span class="text-red-400 text-lg">Ja_ne's</span>
+        <h2 class="text-red-400 text-2xl font-bold">News HeadLine</h2>
+      </div>
+      <div>
+        <h2 class="text-2xl text-red-400 font-bold">Registration Form</h2>
+      </div>
+    </nav>
+  </header>
+
+  <main class="p-10">
+    <form id="registerForm">
+      <div>
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" class="border-2 border-gray-200" required>
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" class="border-2 border-gray-200" required>
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" class="border-2 border-gray-200" required>
+      </div>
+
+      <div>
+        <label for="date">Date</label>
+        <input type="date" id="date" class="border-2 border-gray-200" required>
+      </div>
+
+      <div class="flex gap-5">
+        <label for="gender">Gender</label>
+        <div>
+          <input type="radio" name="gender" id="male" value="Male" required>
+          <label for="male">Male</label>
+        </div>
+        <div>
+          <input type="radio" name="gender" id="female" value="Female">
+          <label for="female">Female</label>
+        </div>
+      </div>
+
+      <input type="submit" value="Submit" class="mt-5 px-4 py-2 bg-red-300 border border-gray-300 rounded-md">
+    </form>
+
+    <div id="result" class="mt-5 text-lg text-gray-700"></div>
+  </main>
+
+  <script>
+    const form = document.getElementById("registerForm");
+    const result = document.getElementById("result");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fullName = document.getElementById("fullName").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const date = document.getElementById("date").value;
+      const gender = document.querySelector('input[name="gender"]:checked')?.value || "Not specified";
+
+      const user = { fullName, email, password, date, gender };
+        user.clasList.add('flex', 'flex-col')
+      localStorage.setItem("user", JSON.stringify(user));
+
+      
+      result.innerText = `User Registered:
+      \nName: ${fullName}
+      \nEmail: ${email}
+      \nPassword: ${password}
+      \nDate: ${date}
+      \nGender: ${gender}`;
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>

@@ -6,12 +6,33 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-blue-50">
-    <div class="flex items-center gap-2 p-5 mx-10">
-        <span class="text-blue-600">Ja_ne's</span>
-         <h2 class="text-blue-600 text-2xl font-bold ">News HeadLine</h2>
-    </div>
+<body class="bg-red-50">
+  <header>
+    <nav class="flex justify-between items-center px-10 bg-red-100 mx-20">
+      <div class="flex items-center gap-2 p-5 mx-10 ">
+        <span class="text-red-400 text-lg">Ja_ne's</span>
+        <h2 class="text-red-400 text-2xl font-bold ">News HeadLine</h2>
+      </div>
+      <ul class="text-red-400 flex gap-2 px-10">
+        <li class="   text-center">Sports</li>
+        <li >Health</li>
+        <li >Tourism</li>
+        <li>Local News</li>
+      </ul>
+      <div>
+        <a href="./register.html" class="border-2 border-gray-300 px-4 py-2 text-red-400">Sign Up</a>
+        <a href="./logIn.html" class="border-2 border-gray-300 px-4 py-2 text-red-400">Log In</a>
+      </div>
+    </nav>
+  </header>
+  
+    
   <div id="container"></div>
+  <footer>
+    <div class="bg-red-100">
+
+    </div>
+  </footer>
 
   <script>
     const apiKey = "e09fd6801051431c8bd0b139bdad09e6";
@@ -19,7 +40,7 @@
 
     function addPara(source, author, content, imageUrl, articleUrl, title) {
       const allDiv = document.createElement("div");
-      allDiv.classList.add("py-5", 'my-5','px-10', 'md:mx-40', 'md:flex', 'justify-center','items-center', 'gap-20', 'border-2', 'border-gray-200');
+      allDiv.classList.add("py-5", 'my-5','px-10', 'md:mx-40', 'md:flex','bg-white', 'justify-center','items-center', 'gap-20', 'border-2', 'border-gray-200', 'rounded-md');
 
       const textDiv = document.createElement("div");
       textDiv.classList.add('word-wrap', 'w-[450px]', 'p-2');
@@ -27,7 +48,7 @@
       const link = document.createElement("a");
       link.href = articleUrl;
       link.target = "_blank";
-      link.classList.add("text-blue-600", "font-bold", "hover:underline", 'hover:text-blue-900');
+      link.classList.add("text-red-400", "font-bold", "hover:underline", 'hover:text-red-600');
       link.innerText = title || "Read Article";
       textDiv.appendChild(link);
 
